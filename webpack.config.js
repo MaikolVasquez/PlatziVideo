@@ -12,6 +12,7 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   module: {
+  
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -50,6 +51,9 @@ module.exports = {
         ]
       }
     ]
+  },
+  devServer: {  
+    historyApiFallback: true,  
   },
   plugins: [
     new HtmlWebPackPlugin({
