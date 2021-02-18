@@ -3,4 +3,12 @@ const setFavorite = payload =>  ({
         payload
     });
 
-export default setFavorite
+
+
+const deleteFavorite = payload => ({
+    type: "DELETE_FAVORITE",
+    payload
+})
+
+
+export {setFavorite, deleteFavorite} 

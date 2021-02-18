@@ -1,9 +1,20 @@
-const reducer = (state, action) => {    
+const reducer = (state, action) => { 
+    
      switch (action.type) {
-        case "SET_FAVORITE":            
+        case "SET_FAVORITE": 
+            if (state.mylist.find(item => item.id == action.payload.id)){
+                return {...state}
+            }else{
+                return {
+                    ...state,
+                    mylist : [...state.mylist, action.payload]                               
+                }  
+            }
+            
+        case "DELETE_FAVORITE":
             return {
                 ...state,
-                mylist : [...state.mylist, action.payload]                               
+                mylist: state.mylist.filter(item => item.id !== action.payload)
             }
         default:
             return state

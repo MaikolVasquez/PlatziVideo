@@ -10,7 +10,6 @@ import '../assets/styles/App.scss';
 
 const Home = (props) => {
   const {mylist, trends, originals} = props;
-  console.log(props)
   return (
     <div className="Home">
       <Search />
@@ -19,7 +18,7 @@ const Home = (props) => {
           <Carousel>
             {
               mylist.map(item =>              
-              <CarouselItem key={item.id} {...item} />
+              <CarouselItem key={item.id} {...item} isList/>
             )}
           </Carousel>
         </Categories>
