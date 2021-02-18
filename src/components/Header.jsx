@@ -5,20 +5,21 @@ import { logOutRequest } from '../actions'
 import logo from '../assets/static/logo-platzi-video-BW2.png';
 import userIcon from '../assets/static/user-icon.png';
 import gravatar from '../utils/Gravatar'
+import classNames from 'classnames'
 import '../assets/styles/components/Header.scss';
 
 const Header = (props) => {
-const { user } =props;
+const { user, isRegister, isLogin } =props;
 const hasUser = Object.keys(user).length > 0
 
 const handelLogOut = () => { 
   props.logOutRequest({})
 }
 
-
+const headerClass = classNames('header',{isLogin, isRegister,})
 
 return(
-  <header className="header">
+  <header className={headerClass}>
     <Link to="/">
         <img className="header__img" src={logo} alt="Platzi Video"/>
     </Link>
@@ -30,7 +31,13 @@ return(
           :
         <img src={userIcon} alt="" />
         }
-        <p>Perfil</p>
+        {
+        hasUser ? 
+        <p>{user.email}</p>
+          :
+          <p>Perfil</p>
+        }
+        
       </div>
       <ul>
         {

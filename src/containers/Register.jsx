@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react'
+import { connect } from 'react-redux'
+import { registerRequest } from '../actions'
+import Header from '../components/Header'
 import '../assets/styles/Register.scss'
 
 
-const Register = () => {
+const Register = (props) => {
 
   const [form, setValue] = useState({
     name : '',
@@ -25,10 +28,13 @@ const Register = () => {
 
   const handelSubmit = event => {
     event.preventDefault()
-    console.log(form)
+    props.registerRequest(form)
+    props.history.push("/")
   }
 
     return(
+    <>
+      <Header isLogin/>
         <section className="register">
         <section className="register__container">
           <h2>Regístrate</h2>
@@ -41,9 +47,15 @@ const Register = () => {
           <Link to="/Login">Iniciar sesión</Link>
         </section>
       </section>
-
+    </>
     )
 
 }
 
-export default Register;
+
+const mapDispatchToProps = {
+  registerRequest,
+};
+
+
+export default connect(null,mapDispatchToProps)(Register);

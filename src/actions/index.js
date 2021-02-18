@@ -7,7 +7,6 @@ const deleteFavorite = payload => ({
     payload
 })
 
-
 const loginRequest = payload => ({
     type: "LOGIN_REQUEST",
     payload
@@ -18,5 +17,15 @@ const logOutRequest = payload => ({
     payload
 })
 
-export {setFavorite, deleteFavorite, loginRequest, logOutRequest} 
+const registerRequest = payload => ({
+    type: "REGISTER_REQUEST",
+    payload
+})
+
+const getVideoSource = payload => ({
+    type: "GETVIDEOSOURCE_REQUEST",
+    payload
+})
+
+export {setFavorite, deleteFavorite, loginRequest, logOutRequest, registerRequest, getVideoSource} 
 

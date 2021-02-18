@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { loginRequest } from '../actions'
 import googleIcon from '../assets/static/google-icon.png'
 import twitterIcon from '../assets/static/twitter-icon.png'
+import Header from '../components/Header'
 import '../assets/styles/Login.scss'
 
 const Login = (props) => {
@@ -26,8 +27,9 @@ const Login = (props) => {
 
 
     return (
-
-        <section className="login">
+      <>
+      <Header isLogin/>
+        <section className="login">          
         <section className="login__container">
           <h2>Inicia sesión</h2>
           <form className="login__container--form" onSubmit={handelSubmit}>
@@ -48,6 +50,7 @@ const Login = (props) => {
           <p className="login__container--register">No tienes ninguna cuenta <Link to="/Register">Regístrate</Link></p>
         </section>
       </section>
+      </>
     )
 
 
